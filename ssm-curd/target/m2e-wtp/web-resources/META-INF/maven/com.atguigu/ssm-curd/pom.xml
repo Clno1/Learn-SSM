@@ -58,9 +58,9 @@
 <!-- 数据库连接池（c3p0/c3p0） -->
 <!-- https://mvnrepository.com/artifact/c3p0/c3p0 -->
 <dependency>
-    <groupId>c3p0</groupId>
-    <artifactId>c3p0</artifactId>
-    <version>0.9.1.2</version>
+	<groupId>com.mchange</groupId>
+	<artifactId>c3p0</artifactId>
+	<version>0.9.5.2</version>
 </dependency>
 <!-- Mysql驱动 (MySQL Connector/J)-->
 <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
@@ -88,9 +88,19 @@
 </dependency>
 <!-- https://mvnrepository.com/artifact/junit/junit -->
 <dependency>
-    <groupId>junit</groupId>
-    <artifactId>junit</artifactId>
-    <version>4.12</version>
+	<groupId>junit</groupId>
+	<artifactId>junit</artifactId>
+	<version>4.12</version>
+	<scope>provided</scope>
+</dependency>
+
+
+<!-- Spring Test -->
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-test</artifactId>
+    <version>4.3.7.RELEASE</version>
     <scope>test</scope>
 </dependency>
 

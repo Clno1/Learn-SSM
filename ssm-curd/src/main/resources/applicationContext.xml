@@ -7,7 +7,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		">
 
 <context:component-scan base-package="com.atguigu">
 	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
@@ -18,7 +19,7 @@
 <context:property-placeholder location="classpath:dbconfig.properties"/>
 <bean id="ComboPooledDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 	<property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
-	<property name="driverClass"  value="${jdnc.driverClass}"></property>
+	<property name="driverClass"  value="${jdbc.driverClass}"></property>
 	<property name="user"  value="${jdbc.user}"></property>
 	<property name="password"  value="${jdbc.password}"></property>
 </bean>
@@ -40,7 +41,7 @@
 <!-- 配置扫描器，将mybatis接口实现到ioc容器中 -->
 <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 	<!-- 扫描所有的Dao接口的实现，加入到ioc容器中 -->
-	<property name="basePackage" value="com.atguigu.crud.dao"></property>
+	<property name="basePackage" value="com.atguigu.curd.dao"></property>
 </bean>
 	
 
@@ -66,7 +67,7 @@
 		<!-- 所有方法都是事务方法 -->
 		<tx:method name="*"/>
 		<!-- 以get开始的所有方法 -->
-		<tx:method name="get" read-only="true"/>
+		<tx:method name="get*" read-only="true"/>
 	</tx:attributes>
 </tx:advice>
 
